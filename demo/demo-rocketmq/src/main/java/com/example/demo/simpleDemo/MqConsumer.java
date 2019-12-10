@@ -27,7 +27,18 @@ public class MqConsumer {
         try {
             //可订阅多个tag，但是一个消息只能有一个tag *代表全部的Tag
             consumer.subscribe("TopicA", "tagA||tagB");
+            
+            //消费策略(三种)
+            //从队列最开始开始消费，即历史消息（还储存在broker的）全部消费一遍
             consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_FIRST_OFFSET);
+            
+            //默认策略，从该队列最尾开始消费，即跳过历史消息
+            //consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_LAST_OFFSET);
+            
+            //从某个时间点开始消费，和setConsumeTimestamp()配合使用，默认是半个小时以前
+            //consumer.setConsumeFromWhere(ConsumeFromWhere.CONSUME_FROM_TIMESTAMP);
+            //consumer.setConsumeTimestamp(String.valueOf(System.currentTimeMillis()));
+            
             //设置消费模式：广播模式---还有一个负载均衡MessageModel.CLUSTERING
 //            consumer.setMessageModel(MessageModel.BROADCASTING);
             consumer.registerMessageListener(new MessageListenerConcurrently() {
