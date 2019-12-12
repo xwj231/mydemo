@@ -31,17 +31,23 @@ public class Main {
         InputStream keyFile = this.getClass().getResourceAsStream("/ssl/pkcs8_server.key");
         InputStream rootFile = this.getClass().getResourceAsStream("/ssl/ca.crt");
         SslContext sslCtx = SslContextBuilder.forServer(certChainFile, keyFile).trustManager(rootFile).clientAuth(ClientAuth.REQUIRE).build();
+        //主线程（获取连接，分配给工作线程）
         EventLoopGroup bossGroup = new NioEventLoopGroup(1);
+        //工作线程，负责收发消息
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         try {
+            //netty封装的启动类
             ServerBootstrap b = new ServerBootstrap();
+            //设置线程组，主线程和子线程
             b.group(bossGroup, workerGroup)
                     .channel(NioServerSocketChannel.class)
                     .handler(new LoggingHandler(LogLevel.INFO))
+                    //初始化处理器
                     .childHandler(new Initializer(sslCtx));
             ChannelFuture f = b.bind(m_port).sync();
             f.channel().closeFuture().sync();
         } finally {
+            //出现异常以后，优雅关闭线程组
             bossGroup.shutdownGracefully();
             workerGroup.shutdownGracefully();
         }
