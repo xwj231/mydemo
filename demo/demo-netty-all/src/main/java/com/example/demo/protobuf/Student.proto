@@ -1,0 +1,11 @@
+syntax = "proto3";  //定义语法
+
+option java_package = "com.example.demo.protobuf";  //定义文件所在目录
+option optimize_for = SPEED; //加快解析速度
+option java_outer_classname = "DateInfo"; //java外层文件名
+
+message Student {
+    string name = 1;
+    string age = 2;
+    string address = 3;
+}
