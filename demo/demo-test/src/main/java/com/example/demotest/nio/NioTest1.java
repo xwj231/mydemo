@@ -21,7 +21,7 @@ public class NioTest1 {
         //limit = position;
         //position = 0;
         //mark = -1;
-        intBuffer.flip();intBuffer.clear();
+        intBuffer.flip();
         //是否还有剩下的元素
         while (intBuffer.hasRemaining()) {
             System.out.println(intBuffer.get());
