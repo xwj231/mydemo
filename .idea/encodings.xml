@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo-encryption/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo-netty-all/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo-netty-ssl/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo-rocketmq" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo-rocketmq/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo-scheduled" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo-scheduled/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo-test/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo-zk" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo-zk/src/main/java" charset="UTF-8" />
+  </component>
+</project>

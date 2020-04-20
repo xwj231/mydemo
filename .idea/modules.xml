@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/demo.iml" filepath="$PROJECT_DIR$/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo-encryption/demo-encryption.iml" filepath="$PROJECT_DIR$/demo-encryption/demo-encryption.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo-netty-all/demo-netty-all.iml" filepath="$PROJECT_DIR$/demo-netty-all/demo-netty-all.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo-netty-ssl/demo-netty-ssl.iml" filepath="$PROJECT_DIR$/demo-netty-ssl/demo-netty-ssl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo-rocketmq/demo-rocketmq.iml" filepath="$PROJECT_DIR$/demo-rocketmq/demo-rocketmq.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo-scheduled/demo-scheduled.iml" filepath="$PROJECT_DIR$/demo-scheduled/demo-scheduled.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo-test/demo-test.iml" filepath="$PROJECT_DIR$/demo-test/demo-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo-zk/demo-zk.iml" filepath="$PROJECT_DIR$/demo-zk/demo-zk.iml" />
+    </modules>
+  </component>
+</project>
