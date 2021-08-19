@@ -26,10 +26,27 @@ public class MyRedissonClientTest {
         RedissonClient client = Redisson.create(config);
         RLock lock1 = client.getLock("lock1");
         try {
-            logger.info("加锁。。。");
-            lock1.lock();
-            lock1.lock(20, TimeUnit.SECONDS);
-            // 加锁两次后redis中锁存放内容： key -> 217d5949-af4a-4a70-bb5a-ba4c7b62a3d8:1  value -> 2
+            new Thread() {
+                @Override
+                public void run() {
+                    try {
+                        logger.info("线程二加锁结果：{}", lock1.tryLock(20, TimeUnit.SECONDS));
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }.start();
+            TimeUnit.SECONDS.sleep(2);
+            new Thread() {
+                @Override
+                public void run() {
+                    logger.info("线程一加锁结果：{}", lock1.tryLock());
+                    ;
+                }
+            }.start();
+            // 加锁两次后redis中锁存放内容： hashkey -> lock1 key -> 217d5949-af4a-4a70-bb5a-ba4c7b62a3d8:1  value -> 2
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         } finally {
             logger.info("释放锁。。。");
             /*lock1.unlock();
