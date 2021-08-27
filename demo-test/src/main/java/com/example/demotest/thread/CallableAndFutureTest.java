@@ -52,6 +52,8 @@ public class CallableAndFutureTest {
             e.printStackTrace();
         }
         logger.info("测试获取结果是否会阻塞主线程");
+        // 关闭线程池
+        threadPool.shutdown();
         return result;
     }
 
@@ -84,6 +86,8 @@ public class CallableAndFutureTest {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        // 关闭线程池
+        threadPool.shutdown();
         return list;
     }
 }
