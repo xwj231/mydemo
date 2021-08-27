@@ -69,7 +69,7 @@ public class CallableAndFutureTest {
             completionService.submit(new Callable<String>() {
                 @Override
                 public String call() throws Exception {
-                    TimeUnit.SECONDS.sleep(seq);
+                    TimeUnit.SECONDS.sleep(5 - seq);
                     return "SUCCESS" + seq;
                 }
             });
@@ -78,6 +78,7 @@ public class CallableAndFutureTest {
         try {
             for (int i = 0; i < 5; i++) {
                 String result = completionService.take().get();
+                logger.info("{}--打印结果：{}", i, result);
                 list.add(result);
             }
         } catch (Exception e) {
