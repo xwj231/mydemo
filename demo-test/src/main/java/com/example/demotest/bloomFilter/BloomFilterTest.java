@@ -2,7 +2,6 @@ package com.example.demotest.bloomFilter;
 
 import org.apache.lucene.util.RamUsageEstimator;
 
-import java.security.NoSuchAlgorithmException;
 import java.util.BitSet;
 
 /**
